@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mymac.mapper.memberMapper">
+    <insert id="insertMember">
+   insert into project_member (id, pw, confirmCode) values
+   (#{id}, #{pw},#{confirmCode})
+   </insert>
+   
+   <select id="selectMember" resultType="memberVO">
+   select * from project_member where id = #{id}
+   </select>
+   
+   <select id="readWithPW" resultType="memberVO">
+   select * from project_member where id = #{id} and pw = #{pw}
+   </select>
+   
+   <update id="updateMember">
+   update project_member set confirm=1 where id = #{id}
+   </update>
+</mapper>
