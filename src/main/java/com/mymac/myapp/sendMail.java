@@ -1,5 +1,8 @@
 package com.mymac.myapp;
 
+import com.mymac.VO.privateData;
+
+import java.io.*;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -13,12 +16,15 @@ import javax.mail.internet.MimeMessage;
 
 public class sendMail {
 	public void sendEmail(String email, String auth) throws AddressException, MessagingException{
+
+		final privateData privateData = new privateData();
+
 		String host = "smtp.gmail.com";
 		String subject = "Anywhere 인증번호";
 		String fromName = "Anywhere";
 		String from = "dlfgksdl@naver.com";
 		String to1 = email;
-		final String user = "bbb8323";
+		final String user = privateData.getGID();
 		
 		String content = "인증번호 ["+auth+"]";
 		
@@ -40,7 +46,7 @@ public class sendMail {
 			
 			Session mailSession = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication(user,"940940qq");
+					return new PasswordAuthentication(user,privateData.getGPW());
 				}
 			});
 			mailSession.setDebug(true);

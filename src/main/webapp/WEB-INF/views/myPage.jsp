@@ -46,7 +46,7 @@ $(document).ready(function(){
 		<c:when test="${name eq '0'}">
 			<p>인증상태 : 인증필요 </p>
 			<form role = "form" method="POST" action="/myapp/emailAuth">
-				<p><input class="class="btn blue" type="submit" value="인증번호 발송"></p>
+				<p><input class="class=btn blue" type="submit" value="인증번호 발송"></p>
 			</form>
 			<form role = "form" method="POST" action="/myapp/myPage">
 				<p><input class="inputCon" type="text" name="inputConfirm"><input class="btnConfrim" type="submit" value="확인" ></p>
